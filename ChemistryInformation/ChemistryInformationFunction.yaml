@@ -1,0 +1,17 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Returns information about chemical element
+Resources:
+  ChemistryInformationFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs6.10
+      CodeUri: .
+      Description: Returns information about chemical element
+      MemorySize: 128
+      Timeout: 7
+      Role: 'arn:aws:iam::088161562049:role/service-role/lambda_basic_execution'
+      Events:
+        AlexaSkillEvent:
+          Type: AlexaSkill
